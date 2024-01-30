@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import Navigation from '@/components/Navigation';
+import Link from "next/link"
 
 export default function Home() {
   return (
@@ -8,7 +8,7 @@ export default function Home() {
         <h1 className="text-3xl font-bold mb-4">
           CPRG 306: Web Development 2 - Assignments
         </h1>
-        <Navigation></Navigation>
+        <Link href="/week-2">Week 2 Assignment</Link>
       </div>
     </main>
   );
