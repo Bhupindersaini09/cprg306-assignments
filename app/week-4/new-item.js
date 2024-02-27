@@ -1,4 +1,4 @@
-"use client"
+ "use client"
 import React, {useState} from 'react';
 
 const NewItem = () => {
@@ -11,9 +11,6 @@ const NewItem = () => {
     console.log(name, quantity, category);
     console.log(NewItem);
     alert(`New Item: ${name}, Quantity: ${quantity}, Category: ${category}`);
-    setName("");
-    setQuantity(1);
-    setCategory("produce");
   };
   return (
     <div className="max-w-md mx-auto mt-10 text-black">
@@ -92,3 +89,22 @@ const NewItem = () => {
 };
 export default NewItem;
 
+
+// export default function Counter(){
+
+//   const [count, setCount] = useState(0);
+  
+//   const increment = () => setCount(count + 1);
+//   const decrement = () => setCount(count - 1);
+//   const exit = () => setCount(0);
+
+//   return (
+//     <div>
+//       <h1>Counter</h1>
+//       <p>{count}</p>
+//       <button onClick={increment}>Increment</button>
+//       <button onClick={decrement}>Decrement</button>
+//       <button onClick={exit}>Exit</button>
+//     </div>
+//   )
+// } 
