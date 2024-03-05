@@ -1,7 +1,7 @@
  "use client"
 import React, {useState} from 'react';
 
-const NewItem = () => {
+const NewItem = ({onAddItem}) => {
   const [name, setName] = useState("");
   const [quantity, setQuantity] = useState(1);
   const [category, setCategory] = useState("produce");
@@ -10,7 +10,8 @@ const NewItem = () => {
     e.preventDefault();
     console.log(name, quantity, category);
     console.log(NewItem);
-    alert(`New Item: ${name}, Quantity: ${quantity}, Category: ${category}`);
+    const id = Math.floor(Math.random() * 10000) + 1;
+    onAddItem({id, name, quantity, category});
   };
   return (
     <div className="max-w-md mx-auto mt-10 text-black">
