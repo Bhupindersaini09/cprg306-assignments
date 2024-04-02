@@ -1,5 +1,5 @@
 {
-  "name": "secondassignment",
+  "name": "cprg306-assignments",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "cross-env": "^7.0.3",
     "encoding": "^0.1.13",
     "firebase": "^10.9.0",
     "next": "14.0.4",
