@@ -11,7 +11,7 @@ const NewItem = ({ onAddItem }) => {
     console.log(name, quantity, category);
     console.log(NewItem);
     const id = Math.floor(Math.random() * 10000) + 1;
-    onAddItem({ category, name, quantity});
+    onAddItem({ category, name, quantity });
   };
   return (
     <div className="max-w-md mx-auto mt-10 text-black">

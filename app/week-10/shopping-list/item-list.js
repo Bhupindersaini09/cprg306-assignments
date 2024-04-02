@@ -5,15 +5,14 @@ import Item from "./item";
 const ItemList = ({ items, onItemSelect }) => {
   const [sortBy, setSortBy] = useState("name");
 
- const sortedItems = [...items].sort((a, b) => {
-   if (sortBy === "name") {
-     return (a.name || "").localeCompare(b.name || "");
-   } else if (sortBy === "category") {
-     return (a.category || "").localeCompare(b.category || "");
-   }
-   return 0;
- });
-
+  const sortedItems = [...items].sort((a, b) => {
+    if (sortBy === "name") {
+      return (a.name || "").localeCompare(b.name || "");
+    } else if (sortBy === "category") {
+      return (a.category || "").localeCompare(b.category || "");
+    }
+    return 0;
+  });
 
   const handleSort = (value) => {
     setSortBy(value);
@@ -58,7 +57,7 @@ const ItemList = ({ items, onItemSelect }) => {
       </div>
       <ul style={{ listStyle: "none", padding: 0 }}>
         {sortedItems.map((item) => (
-          <Item key={item.id} {...item} onSelect={() => onItemSelect(item)}/>
+          <Item key={item.id} {...item} onSelect={() => onItemSelect(item)} />
         ))}
       </ul>
     </div>

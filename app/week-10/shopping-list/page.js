@@ -9,8 +9,7 @@ import NewItem from "./new-item";
 import MealIdeas from "./meal-ideas";
 import { getItems, addItem } from "../_services/shopping-list-service";
 
-export default function Page () {
-  const router = useRouter();
+export default function Page() {
   const { user } = useUserAuth();
   const [items, setItems] = useState([]);
   const [selectedItemName, setSelectedItemName] = useState(null);
@@ -23,7 +22,7 @@ export default function Page () {
     } catch (error) {
       console.error("Error loading items:", error);
     }
-  }
+  };
 
   useEffect(() => {
     if (user) {
@@ -31,23 +30,20 @@ export default function Page () {
     }
   }, [user]);
 
-const handleAddItem = async (newItem) => {
-  try {
-    // Add the item to the shopping list using addItem function
-    await addItem(user.uid, newItem);
-    // Update the state with the newly added item
-    setItems(prevItems => [...prevItems, newItem]);
-  } catch (error) {
-    console.error("Error adding item:", error);
-  }
-}
+  const handleAddItem = async (newItem) => {
+    try {
+      // Add the item to the shopping list using addItem function
+      await addItem(user.uid, newItem);
+      // Update the state with the newly added item
+      setItems((prevItems) => [...prevItems, newItem]);
+    } catch (error) {
+      console.error("Error adding item:", error);
+    }
+  };
 
-
-
-const handleItemSelect = (item) => {
-  setSelectedItemName(item.name);
-};
-
+  const handleItemSelect = (item) => {
+    setSelectedItemName(item.name);
+  };
 
   // Render the shopping list page only if the user is logged in
   return user ? (
@@ -65,5 +61,4 @@ const handleItemSelect = (item) => {
       </div>
     </main>
   ) : null;
-};
-
+}

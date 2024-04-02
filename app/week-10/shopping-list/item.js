@@ -4,7 +4,7 @@ const Item = ({ name, quantity, category, onSelect }) => {
   return (
     <li
       className="p-2 m-4 bg-slate-900 max-w-sm hover:bg-orange-800 cursor-pointer"
-      onClick={() => onSelect({ category, name, quantity})}
+      onClick={() => onSelect({ category, name, quantity })}
     >
       <h2 className="text-xl font-bold">{name}</h2>
       <span className="text-sm">
@@ -13,6 +13,5 @@ const Item = ({ name, quantity, category, onSelect }) => {
     </li>
   );
 };
-
 
 export default Item;
