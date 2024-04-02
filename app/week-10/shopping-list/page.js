@@ -31,30 +31,23 @@ export default function Page () {
     }
   }, [user]);
 
-  const handleAddItem = async (itemName) => {
-    try {
-      // Add the item to the shopping list using addItem function
-      await addItem(user.uid, { name: itemName });
-      // Load items after the new item is added successfully
-      await loadItems();
-    } catch (error) {
-      console.error("Error adding item:", error);
-    }
+const handleAddItem = async (newItem) => {
+  try {
+    // Add the item to the shopping list using addItem function
+    await addItem(user.uid, newItem);
+    // Update the state with the newly added item
+    setItems(prevItems => [...prevItems, newItem]);
+  } catch (error) {
+    console.error("Error adding item:", error);
   }
+}
 
-  const handleItemSelect = (itemName) => {
-    if (typeof itemName === "string") {
-      const cleanedItemName = itemName
-        .replace(
-          /,.*|[\u2700-\u27BF]|[\uE000-\uF8FF]|�[�-�]|�[�-�]|[\u2011-\u26FF]|�[�-�]|\p{Emoji}/gu,
-          ""
-        )
-        .trim();
-      setSelectedItemName(cleanedItemName);
-    } else {
-      console.error("Invalid itemName:", itemName);
-    }
-  };
+
+
+const handleItemSelect = (item) => {
+  setSelectedItemName(item.name);
+};
+
 
   // Render the shopping list page only if the user is logged in
   return user ? (
